@@ -1,0 +1,32 @@
+---
+# Setup vagrant box
+- name: Update all existing packages
+  yum:
+    name: '*'
+    state: latest
+
+- name: Install base packages
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - git
+    - vim
+    - tmux
+    - tree
+    - wget
+    - tar
+
+- name: Add epel repo
+  yum_repository:
+    name: epel
+    description: EPEL YUM repo
+    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+
+- name: Install epel packages
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - the_silver_searcher
+    - htop
