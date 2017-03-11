@@ -13,6 +13,13 @@
     - cmake
     - gcc-c++
     - python-devel
+    - zlib-devel
+    - bzip2-devel
+    - readline-devel
+    - sqlite-devel
+    - openssl-devel
+    - mariadb
+    - mariadb-server
     - git
     - vim
     - tmux
